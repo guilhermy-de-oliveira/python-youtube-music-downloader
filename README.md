@@ -31,7 +31,7 @@ Before running the program, you need to install:
 **1. Clone the repository**
 
 ```bash
-git clone REPOSITORY_URL
+git clone https://github.com/guilhermy-de-oliveira/python-youtube-music-downloader.git
 cd REPOSITORY_FOLDER
 ```
 
