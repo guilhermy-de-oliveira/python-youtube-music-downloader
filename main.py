@@ -1,30 +1,30 @@
 # DEPENDENCIES:
 # Microsoft C++ Build Tools (MSVC v14x,  Windows 10/11 SDK)
 # pip install -U "yt-dlp[default]"
-# Download ffmpeg in https://www.ffmpeg.org/
-# For ffmpeg, install it compiled and copy & paste the bin folder to this directory.
+# Download ffmpeg from https://www.ffmpeg.org/
+# For ffmpeg, install the compiled build and copy the bin folder to this directory.
 
-# Biblioteca para baixar vídeos do Youtube
+# Library to download videos from YouTube
 from yt_dlp import YoutubeDL
 
-# Função para baixar uma playlist
+# Function to download a playlist
 def download_playlist(url_playlist):
-    # Parametros do YoutubeDL
+    # YoutubeDL parameters
     ydl_opts = {
-        # Formato de qualidade do áudio
+        # Audio quality format
         'format': 'bestaudio/best',
-        # Extrai e converte para MP3 usando o FFmpeg
+        # Extracts and converts to MP3 using FFmpeg
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
-            # Qualidade do áudio em kbps
+            # Audio quality in kbps
             'preferredquality': '192',
         }],
-        # Salva dentro de uma pasta com o nome da playlist
+        # Saves inside a folder named after the playlist
         'outtmpl': '%(playlist_title)s/%(title)s.%(ext)s',
-        # Ignora erros em vídeos específicos para não travar a playlist inteira
+        # Ignore errors on specific videos so the whole playlist doesn't stop
         'ignoreerrors': True,
-        # Localização do ffmpeg
+        # Location of ffmpeg
         'ffmpeg_location': './bin/ffmpeg.exe',
         'remote-components': 'ejs:github',
     }
@@ -37,22 +37,22 @@ def download_playlist(url_playlist):
     except Exception as e:
         print(f'Error: {e}')
 
-# Função de baixar uma música
+# Function to download a song
 def download_music(url_video):
-    # Configurações para baixar apenas o áudio e converter para MP3
+    # Settings to download audio only and convert to MP3
     ydl_opts = {
-        # Formato de qualidade do áudio
+        # Audio quality format
         'format': 'bestaudio/best',
-        # Extrai e converte para MP3 usando o FFmpeg
+        # Extracts and converts to MP3 using FFmpeg
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
             'preferredcodec': 'mp3',
-            # Qualidade do áudio em kbps
+            # Audio quality in kbps
             'preferredquality': '192',
         }],
-        # Salva na pasta do executável com o nome do vídeo
+        # Saves in the executable's folder with the video's title
         'outtmpl': '%(title)s.%(ext)s',
-        # Localização do ffmpeg
+        # Location of ffmpeg
         'ffmpeg_location': './bin/ffmpeg.exe',
         'remote-components': 'ejs:github',
     }
@@ -65,7 +65,7 @@ def download_music(url_video):
     except Exception as e:
         print(f'Error: {e}')
 
-# Execução
+# Execution
 if __name__ == '__main__':
     print("Python - Youtube Music Downloader:")
     print(
