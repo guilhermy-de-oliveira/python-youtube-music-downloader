@@ -1,0 +1,19 @@
+# Arquivos de áudio gerados
+*.mp3
+
+# Arquivos executáveis
+*.exe
+
+# Pasta do FFmpeg e outros binários locais
+bin/
+
+# Cache e arquivos temporários do Python
+__pycache__/
+*.py[cod]
+
+# Ambiente virtual
+.venv/
+venv/
+
+# Configurações locais do editor
+.vscode/
